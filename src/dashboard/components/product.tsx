@@ -123,6 +123,4 @@ export default function OneProduct(props: {
 
 }
 
-function setAllProducts(arg0: any) {
-    throw new Error("Function not implemented.");
-}
+
