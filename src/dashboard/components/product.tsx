@@ -13,6 +13,7 @@ export default function OneProduct(props: {
     const [newProductPrice, setNewProductPrice] = useState<string>("");
     const [newProductQuantity, setNewProductQuantity] = useState<string>("");
     const [editingProductId, setEditingProductId] = useState<number>(0);
+    const [hide, setHide] = useState(true)
 
 
 
@@ -92,31 +93,35 @@ export default function OneProduct(props: {
                 onChange={(e) => setNewProductQuantity(e.target.value)}
                 required></input></td>}
             <td>
-                <button type="button" className="btn btn-primary mx-2" onClick={() => {
 
-                    setIsEditing(true);
-                    setEditingProductId(props.product.id);
-                    setNewProductName(props.product!.name);
-                    setNewProductPrice(props.product!.price.toString());
-                    setNewProductQuantity(props.product!.quantity.toString());
-                }}
-                    id="update">
-                    modifier
-                </button>
 
-                <button type="button" className="btn btn-success mx-2" onClick={() => {
-                    handleUpdateProduct(editingProductId, newProductName, newProductPrice, newProductQuantity);
+                {hide ?
+                    <button type="button" className="btn btn-primary mx-2" onClick={() => {
 
-                }}
-                    id="validate">
-                    valider
-                </button>
+                        setIsEditing(true);
+                        setEditingProductId(props.product.id);
+                        setNewProductName(props.product!.name);
+                        setNewProductPrice(props.product!.price.toString());
+                        setNewProductQuantity(props.product!.quantity.toString());
+                        setHide(false)
+                    }}
+                        id="update">
+                        modifier
+                    </button>
+
+                    : <button type="button" className="btn btn-success mx-2" onClick={() => {
+                        handleUpdateProduct(editingProductId, newProductName, newProductPrice, newProductQuantity); setHide(true)
+                    }}
+                        id="validate">
+                        valider
+                    </button>
+                }
 
                 <button type="button" className="btn btn-danger" onClick={() => { handleDelete(props.product.id) }} id="delete">
                     supprimer
                 </button>
             </td>
-        </tr>
+        </tr >
     )
 
 
