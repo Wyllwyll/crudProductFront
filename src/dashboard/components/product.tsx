@@ -96,7 +96,7 @@ export default function OneProduct(props: {
 
 
                 {hide ?
-                    <button type="button" className="btn btn-primary mx-2" onClick={() => {
+                    <button type="button" className="btn btn-primary m-2" onClick={() => {
 
                         setIsEditing(true);
                         setEditingProductId(props.product.id);
@@ -109,7 +109,7 @@ export default function OneProduct(props: {
                         modifier
                     </button>
 
-                    : <button type="button" className="btn btn-success mx-2" onClick={() => {
+                    : <button type="button" className="btn btn-success m-2" onClick={() => {
                         handleUpdateProduct(editingProductId, newProductName, newProductPrice, newProductQuantity); setHide(true)
                     }}
                         id="validate">

@@ -82,8 +82,8 @@ export default function Dashboard() {
             })
     }, []
     )
-    const returnProducts = allProducts.map((product, i) =>
-        <OneProduct product={product} update={handleUpdate} handleDeleteProduct={handleDeleteProduct} ></OneProduct>
+    const returnProducts = allProducts.map(product =>
+        <OneProduct key={`prod-${product.id}`} product={product} update={handleUpdate} handleDeleteProduct={handleDeleteProduct} ></OneProduct>
     )
 
     return (
